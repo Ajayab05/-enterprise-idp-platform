@@ -53,3 +53,136 @@ output "terraform_policy_arn" {
   description = "Terraform IAM Policy ARN"
   value       = module.github_oidc.terraform_policy_arn
 }
+
+
+
+
+###############################################
+# ECR
+###############################################
+
+output "ecr_repository_urls" {
+
+  description = "ECR Repository URLs"
+
+  value = module.ecr.repository_urls
+
+}
+
+output "ecr_repository_names" {
+
+  description = "ECR Repository Names"
+
+  value = module.ecr.repository_names
+
+}
+
+
+
+
+output "secret_arns" {
+
+  value = module.secrets.secret_arns
+
+}
+
+output "secrets_policy_arn" {
+
+  value = module.secrets.secrets_policy_arn
+
+}
+
+
+
+
+
+###############################################
+# Audit
+###############################################
+
+output "audit_bucket_name" {
+  value = module.audit.audit_bucket_name
+}
+
+output "audit_bucket_arn" {
+  value = module.audit.audit_bucket_arn
+}
+
+output "audit_kms_key_arn" {
+  value = module.audit.audit_kms_key_arn
+}
+
+
+
+
+
+
+
+
+###############################################
+# Config
+###############################################
+
+output "config_recorder_name" {
+
+  value = module.config.config_recorder_name
+
+}
+
+output "config_role_arn" {
+
+  value = module.config.config_role_arn
+
+}
+
+
+
+
+###############################################
+# GuardDuty
+###############################################
+
+output "guardduty_detector_id" {
+  value = module.guardduty.guardduty_detector_id
+}
+
+
+
+
+###############################################
+# Security Hub
+###############################################
+
+output "securityhub_enabled" {
+  value = module.securityhub.securityhub_enabled
+}
+
+
+
+
+###############################################
+# Inspector
+###############################################
+
+output "enabled_resource_types" {
+
+  value = module.inspector.enabled_resource_types
+
+}
+
+
+
+
+
+output "eks_cluster_name" {
+  value = module.eks.cluster_name
+}
+
+output "eks_cluster_endpoint" {
+  value = module.eks.cluster_endpoint
+}
+
+
+###############################################
+# OIDC Provider ARN
+######################################}

@@ -102,7 +102,7 @@ data "aws_iam_policy_document" "vpc_flow_logs" {
 
 resource "aws_iam_policy" "vpc_flow_logs" {
 
-  name        = "${local.name_prefix}-vpc-flowlogs-policy"
+  name = "${local.name_prefix}-vpc-flowlogs-policy"
 
   description = "IAM Policy for VPC Flow Logs"
 

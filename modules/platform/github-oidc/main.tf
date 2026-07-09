@@ -1,4 +1,4 @@
-  ###############################################
+###############################################
 # GitHub OIDC TLS Certificate
 ###############################################
 
@@ -165,7 +165,7 @@ data "aws_iam_policy_document" "terraform" {
 
 resource "aws_iam_policy" "terraform" {
 
-  name        = "${local.name_prefix}-terraform-policy"
+  name = "${local.name_prefix}-terraform-policy"
 
   description = "Terraform deployment policy"
 

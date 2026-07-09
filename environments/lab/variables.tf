@@ -82,3 +82,30 @@ variable "github_branch" {
 
 
 
+
+###############################################
+# ECR
+###############################################
+
+variable "repositories" {
+
+  description = "Application repositories"
+
+  type = list(string)
+
+}
+
+
+
+
+variable "secrets" {
+
+  type = map(any)
+
+}
+
+
+
+
+
+
