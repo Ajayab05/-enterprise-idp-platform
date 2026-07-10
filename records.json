@@ -1,0 +1,126 @@
+[
+    {
+        "Name": "aaaa-app.ajay.bar.",
+        "Type": "TXT",
+        "TTL": 300,
+        "ResourceRecords": [
+            {
+                "Value": "\"heritage=external-dns,external-dns/owner=platform-prod,external-dns/resource=ingress/application/crud-frontend\""
+            }
+        ]
+    },
+    {
+        "Name": "aaaa-argocd.ajay.bar.",
+        "Type": "TXT",
+        "TTL": 300,
+        "ResourceRecords": [
+            {
+                "Value": "\"heritage=external-dns,external-dns/owner=platform-prod,external-dns/resource=ingress/argocd/argocd-server\""
+            }
+        ]
+    },
+    {
+        "Name": "aaaa-grafana.ajay.bar.",
+        "Type": "TXT",
+        "TTL": 300,
+        "ResourceRecords": [
+            {
+                "Value": "\"heritage=external-dns,external-dns/owner=platform-prod,external-dns/resource=ingress/monitoring/kube-prometheus-stack-grafana\""
+            }
+        ]
+    },
+    {
+        "Name": "aaaa-prometheus.ajay.bar.",
+        "Type": "TXT",
+        "TTL": 300,
+        "ResourceRecords": [
+            {
+                "Value": "\"heritage=external-dns,external-dns/owner=platform-prod,external-dns/resource=ingress/monitoring/kube-prometheus-stack-prometheus\""
+            }
+        ]
+    },
+    {
+        "Name": "api.ajay.bar.",
+        "Type": "A",
+        "AliasTarget": {
+            "HostedZoneId": "Z35SXDOTRQ7X7K",
+            "DNSName": "k8s-applicat-crudback-bbc8ff5f9b-1944465133.us-east-1.elb.amazonaws.com.",
+            "EvaluateTargetHealth": true
+        }
+    },
+    {
+        "Name": "api.ajay.bar.",
+        "Type": "AAAA",
+        "AliasTarget": {
+            "HostedZoneId": "Z35SXDOTRQ7X7K",
+            "DNSName": "k8s-applicat-crudback-bbc8ff5f9b-1944465133.us-east-1.elb.amazonaws.com.",
+            "EvaluateTargetHealth": true
+        }
+    },
+    {
+        "Name": "app.ajay.bar.",
+        "Type": "A",
+        "AliasTarget": {
+            "HostedZoneId": "Z35SXDOTRQ7X7K",
+            "DNSName": "k8s-applicat-crudfron-2e7fac2140-1243866166.us-east-1.elb.amazonaws.com.",
+            "EvaluateTargetHealth": true
+        }
+    },
+    {
+        "Name": "app.ajay.bar.",
+        "Type": "AAAA",
+        "AliasTarget": {
+            "HostedZoneId": "Z35SXDOTRQ7X7K",
+            "DNSName": "k8s-applicat-crudfron-2e7fac2140-1243866166.us-east-1.elb.amazonaws.com.",
+            "EvaluateTargetHealth": true
+        }
+    },
+    {
+        "Name": "argocd.ajay.bar.",
+        "Type": "A",
+        "AliasTarget": {
+            "HostedZoneId": "Z35SXDOTRQ7X7K",
+            "DNSName": "k8s-argocd-argocdse-a99801a879-1560409160.us-east-1.elb.amazonaws.com.",
+            "EvaluateTargetHealth": true
+        }
+    },
+    {
+        "Name": "argocd.ajay.bar.",
+        "Type": "AAAA",
+        "AliasTarget": {
+            "HostedZoneId": "Z35SXDOTRQ7X7K",
+            "DNSName": "k8s-argocd-argocdse-a99801a879-1560409160.us-east-1.elb.amazonaws.com.",
+            "EvaluateTargetHealth": true
+        }
+    },
+    {
+        "Name": "cname-api.ajay.bar.",
+        "Type": "TXT",
+        "TTL": 300,
+        "ResourceRecords": [
+            {
+                "Value": "\"heritage=external-dns,external-dns/owner=platform-prod,external-dns/resource=ingress/application/crud-backend\""
+            }
+        ]
+    },
+    {
+        "Name": "cname-app.ajay.bar.",
+        "Type": "TXT",
+        "TTL": 300,
+        "ResourceRecords": [
+            {
+                "Value": "\"heritage=external-dns,external-dns/owner=platform-prod,external-dns/resource=ingress/application/crud-frontend\""
+            }
+        ]
+    },
+    {
+        "Name": "cname-argocd.ajay.bar.",
+        "Type": "TXT",
+        "TTL": 300,
+        "ResourceRecords": [
+            {
+                "Value": "\"heritage=external-dns,external-dns/owner=platform-prod,external-dns/resource=ingress/argocd/argocd-server\""
+            }
+        ]
+    }
+]

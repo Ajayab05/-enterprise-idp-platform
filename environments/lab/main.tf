@@ -313,4 +313,170 @@ module "oidc" {
 }
 
 
+module "ebs_csi" {
+
+  source       = "../../modules/platform/addons/ebs-csi"
+  cluster_name = module.eks.cluster_name
+
+  project_name = var.project_name
+
+  environment = var.environment
+
+  tags = var.tags
+
+  depends_on = [
+    module.eks
+  ]
+
+}
+
+
+
+
+
+###############################################
+# Metrics Server
+###############################################
+
+module "metrics_server" {
+
+  source = "../../modules/platform/addons/metrics-server"
+
+  tags = var.tags
+
+  depends_on = [
+    module.eks
+  ]
+
+}
+
+
+
+
+module "aws_load_balancer_controller" {
+
+  source = "../../modules/platform/addons/aws-load-balancer-controller"
+
+  cluster_name = module.eks.cluster_name
+
+  project_name = var.project_name
+
+  environment = var.environment
+
+  tags = var.tags
+
+  depends_on = [
+    module.eks
+  ]
+}
+
+
+
+###############################################
+# Route53
+###############################################
+
+module "route53" {
+
+  source = "../../modules/platform/route53"
+
+  domain_name = "ajay.bar"
+
+  project_name = var.project_name
+
+  environment = var.environment
+
+  tags = var.tags
+
+}
+
+
+
+module "external_dns" {
+
+  source = "../../modules/platform/addons/external-dns"
+
+  cluster_name   = module.eks.cluster_name
+  hosted_zone_id = module.route53.hosted_zone_id
+  domain_name    = "ajay.bar"
+
+  project_name = var.project_name
+  environment  = var.environment
+  tags         = var.tags
+
+  depends_on = [
+    module.route53,
+    module.aws_load_balancer_controller
+  ]
+}
+
+
+
+
+
+
+
+###############################################
+# ACM Certificate
+###############################################
+
+module "certificates" {
+
+  source = "../../modules/platform/certificates"
+
+  domain_name = "app.ajay.bar"
+
+  hosted_zone_id = module.route53.hosted_zone_id
+
+  project_name = var.project_name
+
+  environment = var.environment
+
+  tags = var.tags
+
+  depends_on = [
+
+    module.route53
+
+  ]
+
+}
+
+
+
+
+
+
+
+
+
+
+###############################################
+# ArgoCD
+###############################################
+
+module "argocd" {
+
+  source = "../../modules/platform/addons/argocd"
+
+  cluster_name = module.eks.cluster_name
+
+  project_name = var.project_name
+
+  environment = var.environment
+
+  tags = var.tags
+
+  depends_on = [
+    module.aws_load_balancer_controller
+  ]
+
+}
+
+
+
+
+
+
+
 

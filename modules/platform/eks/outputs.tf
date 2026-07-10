@@ -97,3 +97,19 @@ output "system_nodegroup_arn" {
   value = aws_eks_node_group.system.arn
 
 }
+
+
+
+
+
+###############################################
+# Cluster CA Certificate
+###############################################
+
+output "cluster_ca_certificate" {
+
+  description = "EKS Cluster CA Certificate"
+
+  value = aws_eks_cluster.this.certificate_authority[0].data
+
+}

@@ -1,0 +1,27 @@
+namespace: demo
+
+replicaCount: 2
+
+image:
+  repository: nginx
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+
+  enabled: true
+
+  className: alb
+
+  scheme: internet-facing
+
+  targetType: ip
+
+  hostname: app.ajay.bar
+
+  certificateArn: arn:aws:acm:us-east-1:076124125794:certificate/24fda8df-19b5-45c8-88a1-d17cdd82bef1
+
+  sslRedirect: "443"

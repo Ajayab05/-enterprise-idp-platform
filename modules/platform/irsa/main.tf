@@ -6,7 +6,7 @@ data "aws_iam_policy_document" "assume_role" {
 
   statement {
 
-    sid    = "IRSAAssumeRole"
+    sid = "IRSAAssumeRole"
 
     effect = "Allow"
 

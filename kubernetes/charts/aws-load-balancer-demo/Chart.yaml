@@ -1,0 +1,6 @@
+apiVersion: v2
+name: aws-load-balancer-demo
+description: Demo application for AWS Load Balancer Controller
+type: application
+version: 1.0.0
+appVersion: "1.25"

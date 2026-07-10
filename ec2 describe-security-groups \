@@ -1,0 +1,336 @@
+{
+    "TargetGroups": [
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-applicat-crudback-3608cf9695/28afd91eb94c9018",
+            "TargetGroupName": "k8s-applicat-crudback-3608cf9695",
+            "Protocol": "HTTP",
+            "Port": 5000,
+            "VpcId": "vpc-0f87eba721a4f66db",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-applicat-crudfron-cf592b19ed/5d5e527eb4e873a4",
+            "TargetGroupName": "k8s-applicat-crudfron-cf592b19ed",
+            "Protocol": "HTTP",
+            "Port": 80,
+            "VpcId": "vpc-0f87eba721a4f66db",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-argocd-argocdse-f50875dcd9/bb1bfa2f5381abfc",
+            "TargetGroupName": "k8s-argocd-argocdse-f50875dcd9",
+            "Protocol": "HTTP",
+            "Port": 8080,
+            "VpcId": "vpc-0f87eba721a4f66db",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-default-nginxser-08bae492c8/20aae1e346740777",
+            "TargetGroupName": "k8s-default-nginxser-08bae492c8",
+            "Protocol": "HTTP",
+            "Port": 80,
+            "VpcId": "vpc-081a52ec8ebc42e89",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-demo-nginx-14b39ae1b0/11064c73fa6d68bb",
+            "TargetGroupName": "k8s-demo-nginx-14b39ae1b0",
+            "Protocol": "HTTP",
+            "Port": 80,
+            "VpcId": "vpc-01e36a1cb5a47a4cc",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-demo-nginx-f895f9ce3b/9825c292bb962566",
+            "TargetGroupName": "k8s-demo-nginx-f895f9ce3b",
+            "Protocol": "HTTP",
+            "Port": 80,
+            "VpcId": "vpc-0ee2a31bd98f1038f",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [
+                "arn:aws:elasticloadbalancing:us-east-1:076124125794:loadbalancer/app/k8s-demo-nginx-02ff9f8838/c7e1a51ae9dd829b"
+            ],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-employee-backend-693d2a2df1/2259fbd290ff27fe",
+            "TargetGroupName": "k8s-employee-backend-693d2a2df1",
+            "Protocol": "HTTP",
+            "Port": 5000,
+            "VpcId": "vpc-0185466030ce52630",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-employee-employee-1be3014a33/87ec71f7991428fa",
+            "TargetGroupName": "k8s-employee-employee-1be3014a33",
+            "Protocol": "HTTP",
+            "Port": 5000,
+            "VpcId": "vpc-0c95501e33d8544af",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-employee-employee-2538b4344d/a45721dce2896c63",
+            "TargetGroupName": "k8s-employee-employee-2538b4344d",
+            "Protocol": "HTTP",
+            "Port": 80,
+            "VpcId": "vpc-0c95501e33d8544af",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-employee-frontend-276ba9ba68/1eab4045178c86fe",
+            "TargetGroupName": "k8s-employee-frontend-276ba9ba68",
+            "Protocol": "HTTP",
+            "Port": 80,
+            "VpcId": "vpc-0185466030ce52630",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-monitori-kubeprom-998b174af0/422417d9f6acb07a",
+            "TargetGroupName": "k8s-monitori-kubeprom-998b174af0",
+            "Protocol": "HTTP",
+            "Port": 1,
+            "VpcId": "vpc-0f87eba721a4f66db",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-monitori-kubeprom-cf6fa57829/e34d97dd3b1c18a7",
+            "TargetGroupName": "k8s-monitori-kubeprom-cf6fa57829",
+            "Protocol": "HTTP",
+            "Port": 9090,
+            "VpcId": "vpc-0f87eba721a4f66db",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/-/healthy",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-monitori-monitori-7bf7a6b54d/958d2767911b716e",
+            "TargetGroupName": "k8s-monitori-monitori-7bf7a6b54d",
+            "Protocol": "HTTP",
+            "Port": 1,
+            "VpcId": "vpc-0b55b207dc6bea92e",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-pharma-backends-b0477fa4ae/9c6bd8a2031dde9d",
+            "TargetGroupName": "k8s-pharma-backends-b0477fa4ae",
+            "Protocol": "HTTP",
+            "Port": 5000,
+            "VpcId": "vpc-0b55b207dc6bea92e",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:076124125794:targetgroup/k8s-pharma-frontend-78d2da914c/4049aa3a5eedd50a",
+            "TargetGroupName": "k8s-pharma-frontend-78d2da914c",
+            "Protocol": "HTTP",
+            "Port": 80,
+            "VpcId": "vpc-0b55b207dc6bea92e",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        }
+    ]
+}
