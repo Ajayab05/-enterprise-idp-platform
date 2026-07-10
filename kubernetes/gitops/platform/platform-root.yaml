@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: platform-root
+  namespace: argocd
+
+spec:
+
+  project: default
+
+  source:
+
+    repoURL: https://github.com/Ajayab05/-enterprise-idp-platform.git
+
+    targetRevision: main
+
+    path: kubernetes/gitops/platform
+
+  destination:
+
+    server: https://kubernetes.default.svc
+
+    namespace: argocd
+
+  syncPolicy:
+
+    automated:
+
+      prune: true
+
+      selfHeal: true
