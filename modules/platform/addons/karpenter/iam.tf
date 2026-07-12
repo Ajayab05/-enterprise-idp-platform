@@ -1,37 +1,25 @@
 ###############################################
-# Karpenter Controller IAM Role
+# Karpenter Node IAM Role
 ###############################################
 
-resource "aws_iam_role" "karpenter_controller" {
+resource "aws_iam_role" "karpenter_node" {
 
-  name = "${local.name_prefix}-karpenter-controller"
+  name = "${local.name_prefix}-karpenter-node"
 
   assume_role_policy = jsonencode({
 
     Version = "2012-10-17"
 
     Statement = [
-      {
 
+      {
         Effect = "Allow"
 
         Principal = {
-          Federated = var.oidc_provider_arn
+          Service = "ec2.amazonaws.com"
         }
 
-        Action = "sts:AssumeRoleWithWebIdentity"
-
-        Condition = {
-
-          StringEquals = {
-
-            "${replace(var.cluster_oidc_issuer_url, "https://", "")}:aud" = "sts.amazonaws.com"
-
-            "${replace(var.cluster_oidc_issuer_url, "https://", "")}:sub" = "system:serviceaccount:kube-system:karpenter"
-
-          }
-
-        }
+        Action = "sts:AssumeRole"
 
       }
 
@@ -39,11 +27,50 @@ resource "aws_iam_role" "karpenter_controller" {
 
   })
 
-  tags = merge(
-    var.tags,
-    {
-      Name = "${local.name_prefix}-karpenter-controller"
-    }
-  )
+  tags = var.tags
+
+}
+
+###############################################
+# Managed Policies
+###############################################
+
+resource "aws_iam_role_policy_attachment" "worker_node" {
+
+  role       = aws_iam_role.karpenter_node.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+
+}
+
+resource "aws_iam_role_policy_attachment" "cni" {
+
+  role       = aws_iam_role.karpenter_node.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+
+}
+
+resource "aws_iam_role_policy_attachment" "ecr" {
+
+  role       = aws_iam_role.karpenter_node.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly"
+
+}
+
+resource "aws_iam_role_policy_attachment" "ssm" {
+
+  role       = aws_iam_role.karpenter_node.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+
+}
+
+###############################################
+# Instance Profile
+###############################################
+
+resource "aws_iam_instance_profile" "karpenter" {
+
+  name = "${local.name_prefix}-karpenter"
+
+  role = aws_iam_role.karpenter_node.name
 
 }

@@ -1,0 +1,574 @@
+{
+  "version": 4,
+  "terraform_version": "1.15.8",
+  "serial": 74,
+  "lineage": "c76fc75e-0ef1-08f8-ed70-ce69fd95c601",
+  "outputs": {},
+  "resources": [
+    {
+      "module": "module.audit",
+      "mode": "data",
+      "type": "aws_caller_identity",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_id": "076124125794",
+            "arn": "arn:aws:iam::076124125794:user/DevOps-Admin",
+            "id": "076124125794",
+            "user_id": "AIDARDOKZ7JRB4MX7QQW7"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "module": "module.audit",
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "audit",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::enterprise-idp-lab-audit-076124125794",
+            "bucket": "enterprise-idp-lab-audit-076124125794",
+            "bucket_domain_name": "enterprise-idp-lab-audit-076124125794.s3.amazonaws.com",
+            "bucket_namespace": "global",
+            "bucket_prefix": "",
+            "bucket_region": "us-east-1",
+            "bucket_regional_domain_name": "enterprise-idp-lab-audit-076124125794.s3.us-east-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "05d8edbdcb1529d8121f14a2fc7c9712e880c24058d92d887f5c5378e512a7c1",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z3AQBSTGFYJSTF",
+            "id": "enterprise-idp-lab-audit-076124125794",
+            "lifecycle_rule": [
+              {
+                "abort_incomplete_multipart_upload_days": 0,
+                "enabled": true,
+                "expiration": [
+                  {
+                    "date": "",
+                    "days": 2555,
+                    "expired_object_delete_marker": false
+                  }
+                ],
+                "id": "audit-retention",
+                "noncurrent_version_expiration": [],
+                "noncurrent_version_transition": [],
+                "prefix": "",
+                "tags": {},
+                "transition": [
+                  {
+                    "date": "",
+                    "days": 180,
+                    "storage_class": "GLACIER"
+                  },
+                  {
+                    "date": "",
+                    "days": 90,
+                    "storage_class": "STANDARD_IA"
+                  }
+                ]
+              }
+            ],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "{\"Statement\":[{\"Action\":\"s3:*\",\"Condition\":{\"Bool\":{\"aws:SecureTransport\":\"false\"}},\"Effect\":\"Deny\",\"Principal\":\"*\",\"Resource\":[\"arn:aws:s3:::enterprise-idp-lab-audit-076124125794/*\",\"arn:aws:s3:::enterprise-idp-lab-audit-076124125794\"],\"Sid\":\"DenyInsecureTransport\"},{\"Action\":\"s3:GetBucketAcl\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudtrail.amazonaws.com\"},\"Resource\":\"arn:aws:s3:::enterprise-idp-lab-audit-076124125794\",\"Sid\":\"AWSCloudTrailAclCheck\"},{\"Action\":\"s3:PutObject\",\"Condition\":{\"StringEquals\":{\"s3:x-amz-acl\":\"bucket-owner-full-control\"}},\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudtrail.amazonaws.com\"},\"Resource\":\"arn:aws:s3:::enterprise-idp-lab-audit-076124125794/AWSLogs/076124125794/*\",\"Sid\":\"AWSCloudTrailWrite\"},{\"Action\":[\"s3:ListBucket\",\"s3:GetBucketAcl\"],\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"config.amazonaws.com\"},\"Resource\":\"arn:aws:s3:::enterprise-idp-lab-audit-076124125794\",\"Sid\":\"AWSConfigBucketPermissionsCheck\"},{\"Action\":\"s3:PutObject\",\"Condition\":{\"StringEquals\":{\"s3:x-amz-acl\":\"bucket-owner-full-control\"}},\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"config.amazonaws.com\"},\"Resource\":\"arn:aws:s3:::enterprise-idp-lab-audit-076124125794/AWSLogs/076124125794/Config/*\",\"Sid\":\"AWSConfigBucketDelivery\"}],\"Version\":\"2012-10-17\"}",
+            "region": "us-east-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "arn:aws:kms:us-east-1:076124125794:key/bea25fd6-790a-4940-823b-e3e800fda638",
+                        "sse_algorithm": "aws:kms"
+                      }
+                    ],
+                    "bucket_key_enabled": true
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Application": "Terraform",
+              "Confidentiality": "Internal",
+              "CostCenter": "Engineering",
+              "Environment": "lab",
+              "ManagedBy": "Terraform",
+              "Name": "enterprise-idp-lab-audit",
+              "Owner": "Ajay",
+              "Project": "enterprise-idp",
+              "Region": "us-east-1",
+              "Repository": "enterprise-idp-platform",
+              "Terraform": "true"
+            },
+            "tags_all": {
+              "Application": "Terraform",
+              "Confidentiality": "Internal",
+              "CostCenter": "Engineering",
+              "Environment": "lab",
+              "ManagedBy": "Terraform",
+              "Name": "enterprise-idp-lab-audit",
+              "Owner": "Ajay",
+              "Project": "enterprise-idp",
+              "Region": "us-east-1",
+              "Repository": "enterprise-idp-platform",
+              "Terraform": "true"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": true,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "076124125794",
+            "bucket": "enterprise-idp-lab-audit-076124125794",
+            "region": "us-east-1"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.audit.data.aws_caller_identity.current"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.inspector",
+      "mode": "data",
+      "type": "aws_caller_identity",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_id": "076124125794",
+            "arn": "arn:aws:iam::076124125794:user/DevOps-Admin",
+            "id": "076124125794",
+            "user_id": "AIDARDOKZ7JRB4MX7QQW7"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "module": "module.inspector",
+      "mode": "managed",
+      "type": "aws_inspector2_enabler",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_ids": [
+              "076124125794"
+            ],
+            "id": "076124125794-EC2:ECR:LAMBDA",
+            "region": "us-east-1",
+            "resource_types": [
+              "EC2",
+              "ECR",
+              "LAMBDA"
+            ],
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjMwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.inspector.data.aws_caller_identity.current"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.networking",
+      "mode": "managed",
+      "type": "aws_vpc",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:076124125794:vpc/vpc-0ee2a31bd98f1038f",
+            "assign_generated_ipv6_cidr_block": false,
+            "cidr_block": "10.0.0.0/16",
+            "default_network_acl_id": "acl-0edfc57d58667b014",
+            "default_route_table_id": "rtb-0b4023dd002b3f514",
+            "default_security_group_id": "sg-0701e19f8bb5133c2",
+            "dhcp_options_id": "dopt-01b7faa2e39b9f412",
+            "enable_dns_hostnames": true,
+            "enable_dns_support": true,
+            "enable_network_address_usage_metrics": false,
+            "id": "vpc-0ee2a31bd98f1038f",
+            "instance_tenancy": "default",
+            "ipv4_ipam_pool_id": null,
+            "ipv4_netmask_length": null,
+            "ipv6_association_id": "",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_network_border_group": "",
+            "ipv6_ipam_pool_id": "",
+            "ipv6_netmask_length": 0,
+            "main_route_table_id": "rtb-0b4023dd002b3f514",
+            "owner_id": "076124125794",
+            "region": "us-east-1",
+            "tags": {
+              "Application": "Terraform",
+              "Confidentiality": "Internal",
+              "CostCenter": "Engineering",
+              "Environment": "lab",
+              "ManagedBy": "Terraform",
+              "Name": "enterprise-idp-lab-vpc",
+              "Owner": "Ajay",
+              "Project": "enterprise-idp",
+              "Region": "us-east-1",
+              "Repository": "enterprise-idp-platform",
+              "Terraform": "true"
+            },
+            "tags_all": {
+              "Application": "Terraform",
+              "Confidentiality": "Internal",
+              "CostCenter": "Engineering",
+              "Environment": "lab",
+              "ManagedBy": "Terraform",
+              "Name": "enterprise-idp-lab-vpc",
+              "Owner": "Ajay",
+              "Project": "enterprise-idp",
+              "Region": "us-east-1",
+              "Repository": "enterprise-idp-platform",
+              "Terraform": "true"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "076124125794",
+            "id": "vpc-0ee2a31bd98f1038f",
+            "region": "us-east-1"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.route53",
+      "mode": "managed",
+      "type": "aws_route53_zone",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:route53:::hostedzone/Z0523350DNC6BS79E57R",
+            "comment": "Enterprise Platform Public Hosted Zone",
+            "delegation_set_id": "",
+            "enable_accelerated_recovery": false,
+            "force_destroy": false,
+            "id": "Z0523350DNC6BS79E57R",
+            "name": "ajay.bar",
+            "name_servers": [
+              "ns-1016.awsdns-63.net",
+              "ns-1387.awsdns-45.org",
+              "ns-1640.awsdns-13.co.uk",
+              "ns-300.awsdns-37.com"
+            ],
+            "primary_name_server": "ns-1387.awsdns-45.org",
+            "tags": {
+              "Application": "Terraform",
+              "CostCenter": "Engineering",
+              "ManagedBy": "Terraform",
+              "Name": "enterprise-idp-lab-hosted-zone"
+            },
+            "tags_all": {
+              "Application": "Terraform",
+              "CostCenter": "Engineering",
+              "ManagedBy": "Terraform",
+              "Name": "enterprise-idp-lab-hosted-zone"
+            },
+            "timeouts": null,
+            "vpc": [],
+            "zone_id": "Z0523350DNC6BS79E57R"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "076124125794",
+            "zone_id": "Z0523350DNC6BS79E57R"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInVwZGF0ZSI6MTgwMDAwMDAwMDAwMH19",
+          "create_before_destroy": true
+        }
+      ]
+    },
+    {
+      "module": "module.terraform_backend",
+      "mode": "data",
+      "type": "aws_caller_identity",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_id": "076124125794",
+            "arn": "arn:aws:iam::076124125794:user/DevOps-Admin",
+            "id": "076124125794",
+            "user_id": "AIDARDOKZ7JRB4MX7QQW7"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "module": "module.terraform_backend",
+      "mode": "managed",
+      "type": "aws_dynamodb_table",
+      "name": "terraform_lock",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:dynamodb:us-east-1:076124125794:table/enterprise-idp-lab-tf-lock",
+            "attribute": [
+              {
+                "name": "LockID",
+                "type": "S"
+              }
+            ],
+            "billing_mode": "PAY_PER_REQUEST",
+            "deletion_protection_enabled": true,
+            "global_secondary_index": [],
+            "global_table_witness": [],
+            "hash_key": "LockID",
+            "id": "enterprise-idp-lab-tf-lock",
+            "import_table": [],
+            "local_secondary_index": [],
+            "name": "enterprise-idp-lab-tf-lock",
+            "on_demand_throughput": [],
+            "point_in_time_recovery": [
+              {
+                "enabled": true,
+                "recovery_period_in_days": 35
+              }
+            ],
+            "range_key": null,
+            "read_capacity": 0,
+            "region": "us-east-1",
+            "replica": [],
+            "restore_backup_arn": null,
+            "restore_date_time": null,
+            "restore_source_name": null,
+            "restore_source_table_arn": null,
+            "restore_to_latest_time": null,
+            "server_side_encryption": [],
+            "stream_arn": "",
+            "stream_enabled": false,
+            "stream_label": "",
+            "stream_view_type": "",
+            "table_class": "STANDARD",
+            "tags": {
+              "Application": "Terraform",
+              "Confidentiality": "Internal",
+              "CostCenter": "Engineering",
+              "Environment": "lab",
+              "ManagedBy": "Terraform",
+              "Name": "enterprise-idp-lab-tf-lock",
+              "Owner": "Ajay",
+              "Project": "enterprise-idp",
+              "Region": "us-east-1",
+              "Repository": "enterprise-idp-platform",
+              "Terraform": "true"
+            },
+            "tags_all": {
+              "Application": "Terraform",
+              "Confidentiality": "Internal",
+              "CostCenter": "Engineering",
+              "Environment": "lab",
+              "ManagedBy": "Terraform",
+              "Name": "enterprise-idp-lab-tf-lock",
+              "Owner": "Ajay",
+              "Project": "enterprise-idp",
+              "Region": "us-east-1",
+              "Repository": "enterprise-idp-platform",
+              "Terraform": "true"
+            },
+            "timeouts": null,
+            "ttl": [
+              {
+                "attribute_name": "",
+                "enabled": false
+              }
+            ],
+            "warm_throughput": [],
+            "write_capacity": 0
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "076124125794",
+            "name": "enterprise-idp-lab-tf-lock",
+            "region": "us-east-1"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjozNjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0="
+        }
+      ]
+    },
+    {
+      "module": "module.terraform_backend",
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "terraform_state",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::enterprise-idp-lab-tfstate-076124125794",
+            "bucket": "enterprise-idp-lab-tfstate-076124125794",
+            "bucket_domain_name": "enterprise-idp-lab-tfstate-076124125794.s3.amazonaws.com",
+            "bucket_namespace": "global",
+            "bucket_prefix": "",
+            "bucket_region": "us-east-1",
+            "bucket_regional_domain_name": "enterprise-idp-lab-tfstate-076124125794.s3.us-east-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "05d8edbdcb1529d8121f14a2fc7c9712e880c24058d92d887f5c5378e512a7c1",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z3AQBSTGFYJSTF",
+            "id": "enterprise-idp-lab-tfstate-076124125794",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "us-east-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "arn:aws:kms:us-east-1:076124125794:key/70c79264-5b25-42d8-91b0-289d06f87b0d",
+                        "sse_algorithm": "aws:kms"
+                      }
+                    ],
+                    "bucket_key_enabled": true
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Application": "Terraform",
+              "Confidentiality": "Internal",
+              "CostCenter": "Engineering",
+              "Environment": "lab",
+              "ManagedBy": "Terraform",
+              "Name": "enterprise-idp-lab-tfstate-076124125794",
+              "Owner": "Ajay",
+              "Project": "enterprise-idp",
+              "Region": "us-east-1",
+              "Repository": "enterprise-idp-platform",
+              "Terraform": "true"
+            },
+            "tags_all": {
+              "Application": "Terraform",
+              "Confidentiality": "Internal",
+              "CostCenter": "Engineering",
+              "Environment": "lab",
+              "ManagedBy": "Terraform",
+              "Name": "enterprise-idp-lab-tfstate-076124125794",
+              "Owner": "Ajay",
+              "Project": "enterprise-idp",
+              "Region": "us-east-1",
+              "Repository": "enterprise-idp-platform",
+              "Terraform": "true"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": true,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "076124125794",
+            "bucket": "enterprise-idp-lab-tfstate-076124125794",
+            "region": "us-east-1"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.terraform_backend.data.aws_caller_identity.current"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": [
+    {
+      "object_kind": "var",
+      "config_addr": "module.terraform_backend.var.environment",
+      "status": "unknown",
+      "objects": null
+    },
+    {
+      "object_kind": "var",
+      "config_addr": "module.terraform_backend.var.project_name",
+      "status": "unknown",
+      "objects": null
+    }
+  ]
+}
+

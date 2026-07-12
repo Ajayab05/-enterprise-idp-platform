@@ -1,3 +1,7 @@
+###############################################
+# General
+###############################################
+
 variable "aws_region" {
   description = "AWS Region"
   type        = string
@@ -29,34 +33,40 @@ variable "tags" {
   default     = {}
 }
 
+###############################################
+# Networking
+###############################################
 
 variable "vpc_cidr" {
-  type = string
+  description = "VPC CIDR"
+  type        = string
 }
 
 variable "availability_zones" {
-  type = list(string)
+  description = "Availability Zones"
+  type        = list(string)
 }
 
 variable "public_subnet_cidrs" {
-  type = list(string)
+  description = "Public Subnet CIDRs"
+  type        = list(string)
 }
 
 variable "private_app_subnet_cidrs" {
-  type = list(string)
+  description = "Private App Subnet CIDRs"
+  type        = list(string)
 }
 
 variable "private_db_subnet_cidrs" {
-  type = list(string)
+  description = "Private DB Subnet CIDRs"
+  type        = list(string)
 }
 
 variable "single_nat_gateway" {
-  type    = bool
-  default = true
+  description = "Use Single NAT Gateway"
+  type        = bool
+  default     = true
 }
-
-
-
 
 ###############################################
 # GitHub OIDC
@@ -78,34 +88,20 @@ variable "github_branch" {
   default     = "main"
 }
 
-
-
-
-
-
 ###############################################
 # ECR
 ###############################################
 
 variable "repositories" {
-
   description = "Application repositories"
-
-  type = list(string)
-
+  type        = list(string)
 }
 
-
-
+###############################################
+# Secrets Manager
+###############################################
 
 variable "secrets" {
-
-  type = map(any)
-
+  description = "Secrets Manager Secrets"
+  type        = map(any)
 }
-
-
-
-
-
-

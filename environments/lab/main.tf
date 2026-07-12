@@ -474,4 +474,18 @@ module "argocd" {
 }
 
 
+module "karpenter" {
 
+  source = "../../modules/platform/addons/karpenter"
+
+  cluster_name              = module.eks.cluster_name
+  cluster_endpoint          = module.eks.cluster_endpoint
+  cluster_security_group_id = module.eks.cluster_security_group_id
+  cluster_oidc_issuer_url   = module.eks.cluster_oidc_issuer_url
+  oidc_provider_arn         = module.oidc.oidc_provider_arn
+  private_subnet_ids        = module.networking.private_app_subnet_ids
+
+  project_name = var.project_name
+  environment  = var.environment
+  tags         = local.common_tags
+}
